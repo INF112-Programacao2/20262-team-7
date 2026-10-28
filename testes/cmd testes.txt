@@ -1,8 +1,0 @@
-// Rodar de dentro de /testes
-// Atualizar conforme a classe que for testada
-// classe Entidade(testar a abstração e com subclasse)
-// classe Defensor(testando o construtor e getters)
-
-g++ -std=c++17 -Wall -Wextra -g -fsanitize=address,undefined -I../src -Iprovisorio teste_defensor.cpp ../src/Entidade.cpp ../src/Defensor.cpp -o teste_defensor
-./teste_defensor
-

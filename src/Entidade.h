@@ -1,6 +1,7 @@
 #ifndef ENTIDADE_H
 #define ENTIDADE_H
 #include <string>
+#include <iostream>
 
 class Entidade {
 protected: 
