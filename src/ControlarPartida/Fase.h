@@ -7,9 +7,10 @@ private:
     std::string _dificuldade;
     int _saldoInicial;
     int _vidaInicialNucleo;
+    int _tamanhoTabuleiro;
     
 public:
-    Fase(const std::string& nome, const std::string& dificuldade, int saldoInicial, int vidaInicialNucleo);
+    Fase(const std::string& nome, const std::string& dificuldade, int saldoInicial, int vidaInicialNucleo, int tamanhoTabuleiro);
     
 };
 

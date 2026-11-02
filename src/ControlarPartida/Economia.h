@@ -3,7 +3,7 @@
 
 class Economia {
     private:
-        int _saldo;
+        int _saldoFichas;
     public:
         Economia(int saldoInicial);
         void adicionarSaldo(int valor);
