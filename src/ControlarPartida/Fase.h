@@ -11,7 +11,12 @@ private:
     
 public:
     Fase(const std::string& nome, const std::string& dificuldade, int saldoInicial, int vidaInicialNucleo, int tamanhoTabuleiro);
-    
+    void getInfo() const;
+    std::string getNome() const;
+    std::string getDificuldade() const;
+    int getSaldoInicial() const;
+    int getVidaInicialNucleo() const;
+    int getTamanhoTabuleiro() const;
 };
 
 #endif // FASE_H
