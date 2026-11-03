@@ -1,1 +1,4 @@
+testes/teste_*
+!testes/teste_*.cpp
 .vscode/
+
