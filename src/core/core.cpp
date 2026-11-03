@@ -1,7 +1,7 @@
-#include "../../include/core/core.h"
+#include "core/core.h"
 
 Aplicacao::Aplicacao()
-    : m_janela(sf::VideoMode({800, 600}), "Tower Defense - Grupo 7") {
+    : m_janela(sf::VideoMode({800, 600}), "Tower Defense") {
     m_janela.setFramerateLimit(60);
 }
 
