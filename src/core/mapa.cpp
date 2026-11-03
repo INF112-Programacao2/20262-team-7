@@ -1,4 +1,4 @@
-#include "../../include/core/mapa.h"
+#include "core/mapa.h"
 
 Mapa::Mapa() : m_spriteFundo(m_texturaFundo), m_imagemCarregada(false) {
     if (m_texturaFundo.loadFromFile("assets/imagens/mapa.png")) {
@@ -12,7 +12,7 @@ Mapa::Mapa() : m_spriteFundo(m_texturaFundo), m_imagemCarregada(false) {
     } else {
         std::cerr << "[ERRO] Falha em carregar a imagem do mapa!" << std::endl;
     }
-
+    
     // Inicialização da matriz m_grid 
     for (int l = 0; l < LINHAS; l++) {
         for (int c = 0; c < COLUNAS; c++) {

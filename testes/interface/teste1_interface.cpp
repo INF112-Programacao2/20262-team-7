@@ -1,4 +1,4 @@
-#include "./core/core.h"
+#include "../../include/core/core.h"
 
 int main() {
     Aplicacao app; // Instancia do gerenciador
