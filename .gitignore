@@ -1,4 +1,5 @@
 testes/teste_*
 !testes/teste_*.cpp
 .vscode/
-
+*.o
+tower_defense
