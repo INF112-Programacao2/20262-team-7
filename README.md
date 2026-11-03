@@ -85,15 +85,15 @@ Os defensores representam figuras da vida universitária e os inimigos represent
 ---
 
 ## Status das Entidades (valores provisórios)
-| Entidade | Vida | Dano/Cura/Farm | Custo(🛡️ )/Velocidade(👾) |
-|----------|------|------|--------------------------------------|
-|🛡️ Estudante de Informática| 50 | 5 | 10 |
-|👾 Prova Surpresa | 25 | 5 | 20 |
-|🛡️ Professor de Calculo | 75 | 25 | 50 |
-|👾 Prazo de entrega | 50 | 10 | 10 |
-|🛡️ Monitor da turma | 50 | 20 | 35 |
-|👾 Reprovacao | 150 | 25 | 5 |
-|🛡️ Cozinheiro do RU | 30 | 25 | 25 |   
+| Entidade | Vida | Dano | Suporte | Farm | Custo(🛡️) | Velocidade(👾) |
+|----------|------|------|------|------|-----------|-----------------|
+|🛡️ Estudante de Informática| 50 | 5 | - | - | 10 | - |
+|👾 Prova Surpresa | 25 | 5 | - | - | - | 20 |
+|🛡️ Professor de Calculo | 75 | 25 | - | - | 50 | - |
+|👾 Prazo de entrega | 50 | 10 | - | - | - | 10 |
+|🛡️ Monitor da turma | 50 | - | 20 | - | 35 | - |
+|👾 Reprovacao | 150 | 25 | - | - | - | 5 |
+|🛡️ Cozinheiro do RU | 30 | - | - | 25 | 25 | - |   
 
 ---
 
