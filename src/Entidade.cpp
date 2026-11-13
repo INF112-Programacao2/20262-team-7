@@ -24,7 +24,7 @@ double Entidade::get_coluna() {
     return coluna;
 }
 
-void Entidade::set_posicao(int _linha, int _coluna) {
+void Entidade::set_posicao(int _linha, double _coluna) {
   linha=_linha;
   coluna=_coluna;
 }
