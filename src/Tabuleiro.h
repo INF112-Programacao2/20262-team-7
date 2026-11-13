@@ -2,13 +2,15 @@
 #define TABULEIRO_H
 #include <vector>
 
-// Declarações antecipadas
+// Declarações antecipadas: o .h só precisa saber que essas classes existem.
 class Defensor;
 class Inimigo;
 class Projetil;
+class Economia;
+class Nucleo;
 
 // Grade do jogo. Guarda os defensores, os inimigos e os projéteis
-// e é responsável por apagá-los da memória
+// e é responsável por apagá-los da memória.
 class Tabuleiro {
 private:
   int linhas;
@@ -24,7 +26,7 @@ public:
   Tabuleiro(int _linhas, int _colunas);
   ~Tabuleiro();
 
-  // Nao permite copias apagarem os mesmos ponteiros
+  // Cópia proibida: duas cópias apagariam os mesmos ponteiros.
   Tabuleiro(const Tabuleiro&) = delete;
   Tabuleiro& operator=(const Tabuleiro&) = delete;
 
@@ -34,7 +36,7 @@ public:
   bool posicao_valida(int linha, int coluna) const;
 
   // Coloca o defensor na célula. Se a célula não existir ou estiver ocupada,
-  // lança exceção, e quem criou o defensor continua responsável por apaga-lo
+  // lança exceção, e quem criou o defensor continua responsável por apagá-lo.
   void validar_e_posicionar(Defensor* defensor, int linha, int coluna);
 
   // Guardam o inimigo ou o projétil na linha dele, com a mesma regra acima
@@ -51,8 +53,14 @@ public:
 
   const std::vector<Projetil*>& get_projeteis() const;
 
-  // Apaga os defensores, os inimigos sem vida e os projéteis inativos
-  void remover_destruidos();
+  // Um passo de tempo: atualizar_entidades faz os defensores agirem e depois os
+  // inimigos; avancar_projeteis move os projéteis e confere se acertaram alguém.
+  void atualizar_entidades(Economia& economia, Nucleo& nucleo);
+  void avancar_projeteis();
+
+  // Apaga os defensores e os inimigos sem vida e os projéteis inativos.
+  // O inimigo derrotado credita a recompensa; o que chegou ao núcleo sai sem ela.
+  void remover_destruidos(Economia& economia);
 };
 
 #endif

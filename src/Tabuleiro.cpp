@@ -14,7 +14,7 @@ Tabuleiro::Tabuleiro(int _linhas, int _colunas) :
 Tabuleiro::~Tabuleiro() {
   for (const std::vector<Defensor*>& linha : grade) {
     for (Defensor* defensor : linha) {
-      delete defensor; 
+      delete defensor; // delete em nullptr não faz nada
     }
   }
 
@@ -101,7 +101,27 @@ const std::vector<Projetil*>& Tabuleiro::get_projeteis() const {
   return projeteis;
 }
 
-void Tabuleiro::remover_destruidos() {
+void Tabuleiro::atualizar_entidades(Economia& economia, Nucleo& nucleo) {
+  // Só quem está vivo age
+  for (int l = 0; l < linhas; l++)
+    for (int c = 0; c < colunas; c++)
+      if (grade[l][c] != nullptr && grade[l][c]->esta_viva())
+        grade[l][c]->atualizar(*this, economia, nucleo);
+
+  for (std::vector<Inimigo*>& linha : inimigos_por_linha)
+    for (Inimigo* inimigo : linha)
+      if (inimigo->esta_viva() && !inimigo->chegou_ao_nucleo())
+        inimigo->atualizar(*this, economia, nucleo);
+}
+
+void Tabuleiro::avancar_projeteis() {
+  for (Projetil* projetil : projeteis) {
+    projetil->mover();
+    projetil->detectar_colisao(*this);
+  }
+}
+
+void Tabuleiro::remover_destruidos(Economia& economia) {
   // Defensor sem vida: apaga e libera a célula
   for (int l = 0; l < linhas; l++)
     for (int c = 0; c < colunas; c++)
@@ -115,10 +135,14 @@ void Tabuleiro::remover_destruidos() {
   for (std::vector<Inimigo*>& linha : inimigos_por_linha) {
     std::vector<Inimigo*> ficam;
     for (Inimigo* inimigo : linha) {
-      if (inimigo->esta_viva())
-        ficam.push_back(inimigo);
-      else
+      if (!inimigo->esta_viva()) {
+        inimigo->creditar_recompensa(economia);
         delete inimigo;
+      } else if (inimigo->chegou_ao_nucleo()) {
+        delete inimigo;
+      } else {
+        ficam.push_back(inimigo);
+      }
     }
     linha = ficam;
   }
