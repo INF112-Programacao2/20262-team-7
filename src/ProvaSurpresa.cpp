@@ -1,10 +1,11 @@
 #include "ProvaSurpresa.h"
 
-// Valores provisórios. Vida, dano e velocidade vêm da tabela do README
+// Valores provisórios. Vida e dano seguem a tabela do README.
+// Os tempos estão em passos (10 passos = 1 segundo).
 static const int VIDA = 25;
-static const double VELOCIDADE = 20;
+static const double VELOCIDADE = 0.125; // colunas por passo
 static const int DANO = 5;
-static const int INTERVALO_DE_ATAQUE = 1;
+static const int INTERVALO_DE_ATAQUE = 10;
 static const int RECOMPENSA = 10;
 
 ProvaSurpresa::ProvaSurpresa(int _linha, double _coluna) :
