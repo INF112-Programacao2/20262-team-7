@@ -39,6 +39,9 @@ public:
   bool pode_comprar() const;
   void iniciar_recarga_de_compra();
   void avancar_recarga_compra();
+
+  // Aumenta a vida, sem passar da vida máxima.
+  void curar(int quantidade);
 };
 
 #endif

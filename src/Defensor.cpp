@@ -46,6 +46,12 @@ void Defensor::avancar_recarga_compra() {
       recarga_restante--;
 }
 
+void Defensor::curar(int quantidade) {
+    vida += quantidade;
+    if(vida > vida_maxima)
+      vida = vida_maxima;
+}
+
 bool Defensor::pronto_para_agir() {
     if(tempo_desde_ultima_acao < intervalo_acao)
       tempo_desde_ultima_acao++;
