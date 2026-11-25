@@ -3,8 +3,7 @@
 #include <stdexcept>
 #include <string>
 
-// Versão provisória, usada apenas nos testes do bloco 4.2.
-// Será substituída pela exceção do bloco 4.3, que pelo CRC herda de ExcecaoDoJogo
+// Versão provisória, usada apenas nos testes do bloco 4.2
 class PosicaoInvalidaException : public std::exception {
 public:
   PosicaoInvalidaException(const std::string& mensagem) : std::exception(mensagem) {}
