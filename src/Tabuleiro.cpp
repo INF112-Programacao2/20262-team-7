@@ -101,6 +101,13 @@ const std::vector<Projetil*>& Tabuleiro::get_projeteis() const {
   return projeteis;
 }
 
+bool Tabuleiro::tem_inimigos() const {
+  for (const std::vector<Inimigo*>& linha : inimigos_por_linha)
+    if (!linha.empty())
+      return true;
+  return false;
+}
+
 void Tabuleiro::atualizar_entidades(Economia& economia, Nucleo& nucleo) {
   // Só quem está vivo age
   for (int l = 0; l < linhas; l++)
@@ -130,7 +137,7 @@ void Tabuleiro::remover_destruidos(Economia& economia) {
         grade[l][c] = nullptr;
       }
 
-  // Inimigos e projéteis: monta um vetor novo só com os que ficam e apaga os outros,
+  // Para inimigos e projeteis, monta um vetor novo só com os que ficam e apaga os outros,
   // porque apagar elementos do vetor enquanto ele é percorrido causa erro
   for (std::vector<Inimigo*>& linha : inimigos_por_linha) {
     std::vector<Inimigo*> ficam;

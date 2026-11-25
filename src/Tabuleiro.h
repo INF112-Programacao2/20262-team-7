@@ -2,7 +2,7 @@
 #define TABULEIRO_H
 #include <vector>
 
-// Declarações antecipadas: o .h só precisa saber que essas classes existem.
+// Declarações antecipadas
 class Defensor;
 class Inimigo;
 class Projetil;
@@ -10,7 +10,7 @@ class Economia;
 class Nucleo;
 
 // Grade do jogo. Guarda os defensores, os inimigos e os projéteis
-// e é responsável por apagá-los da memória.
+// e é responsável por apagá-los da memória
 class Tabuleiro {
 private:
   int linhas;
@@ -26,7 +26,7 @@ public:
   Tabuleiro(int _linhas, int _colunas);
   ~Tabuleiro();
 
-  // Cópia proibida: duas cópias apagariam os mesmos ponteiros.
+  // Cópia proibida, para nao apagar o mesmo ponteiro
   Tabuleiro(const Tabuleiro&) = delete;
   Tabuleiro& operator=(const Tabuleiro&) = delete;
 
@@ -36,11 +36,11 @@ public:
   bool posicao_valida(int linha, int coluna) const;
 
   // Coloca o defensor na célula. Se a célula não existir ou estiver ocupada,
-  // lança exceção, e quem criou o defensor continua responsável por apagá-lo.
+  // lança exceção, e quem criou o defensor continua responsável por apagá-lo
   void validar_e_posicionar(Defensor* defensor, int linha, int coluna);
 
   // Guardam o inimigo ou o projétil na linha dele, com a mesma regra acima
-  // quando a linha não existe.
+  // quando a linha nao existe
   void adicionar_inimigo(Inimigo* inimigo);
   void adicionar_projetil(Projetil* projetil);
 
@@ -52,6 +52,9 @@ public:
   const std::vector<Inimigo*>& get_inimigos_na_linha(int linha) const; // devolve a lista sem copiá-la
 
   const std::vector<Projetil*>& get_projeteis() const;
+
+  // Verdadeiro enquanto houver pelo menos um inimigo em alguma linha.
+  bool tem_inimigos() const;
 
   // Um passo de tempo: atualizar_entidades faz os defensores agirem e depois os
   // inimigos; avancar_projeteis move os projéteis e confere se acertaram alguém.
