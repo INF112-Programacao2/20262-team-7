@@ -1,6 +1,6 @@
 # Testes
 
-Execute os testes a partir da pasta `testes/`
+Execute os testes a partir da pasta `testes/`.
 Este readme foi atualizado conforme os casos de teste foram criados.
 
 ## Cobertura atual
@@ -26,7 +26,7 @@ Testes adicionais:
 
 ## Teste de jogo
 
-- **Simulacao:** o novo programa de teste simula uma partida real, já pré-programada, contado com todas as entidades, tabuleiro, nucleo, economia e demais funcionalidades do jogo.
+- **Simulacao:** o novo programa de teste simula uma partida real, já pré-programada, contando com todas as entidades, tabuleiro, nucleo, economia e demais funcionalidades do jogo.
 
 
 ## Compilação
