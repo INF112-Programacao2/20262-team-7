@@ -1,6 +1,7 @@
 # Testes
 
-Execute os testes a partir da pasta `testes/` e atualize o arquivo conforme a classe testada.
+Execute os testes a partir da pasta `testes/`
+Este readme foi atualizado conforme os casos de teste foram criados.
 
 ## Cobertura atual
 
@@ -23,24 +24,22 @@ Testes adicionais:
 - Comportamento dos inimigos: ataque, causa de dano, chegada ao núcleo e obtenção de créditos ao morrer.
 - Novas subclasses defensoras e inimigas: atributos básicos e funções específicas de cada classe.
 
+## Teste de jogo
+
+- **Simulacao:** o novo programa de teste simula uma partida real, já pré-programada, contado com todas as entidades, tabuleiro, nucleo, economia e demais funcionalidades do jogo.
+
+
 ## Compilação
 
 ```bash
-g++ -std=c++17 -Wall -Wextra -g "-fsanitize=address,undefined" \
-    -I../src -Iprovisorio teste_subclasses.cpp \
-    ../src/Entidade.cpp \
-    ../src/Defensor.cpp \
-    ../src/Inimigo.cpp \
-    ../src/EstudanteDeInformatica.cpp \
-    ../src/ProfessorDeCalculo.cpp \
-    ../src/MonitorDaTurma.cpp \
-    ../src/CozinheiroDoRU.cpp \
-    ../src/ProvaSurpresa.cpp \
-    ../src/PrazoDeEntrega.cpp \
-    ../src/Reprovacao.cpp \
-    ../src/Projetil.cpp \
-    ../src/Tabuleiro.cpp \
-    ../src/ControlarPartida/Economia.cpp \
-    ../src/ControlarPartida/Nucleo.cpp \
-    -o teste_subclasses
+g++ -std=c++17 -Wall -Wextra -g "-fsanitize=address,undefined" 
+-I../src -Iprovisorio simulacao.cpp ../src/Entidade.cpp 
+../src/Defensor.cpp  ../src/Inimigo.cpp ../src/EstudanteDeInformatica.cpp
+../src/ProfessorDeCalculo.cpp ../src/MonitorDaTurma.cpp 
+../src/CozinheiroDoRU.cpp ../src/ProvaSurpresa.cpp 
+../src/PrazoDeEntrega.cpp ../src/Reprovacao.cpp ../src/Projetil.cpp 
+../src/Tabuleiro.cpp ../src/FabricaDeEntidades.cpp 
+../src/ControlarPartida/Economia.cpp 
+../src/ControlarPartida/Nucleo.cpp -o simulacao
+./simulacao
 ```
