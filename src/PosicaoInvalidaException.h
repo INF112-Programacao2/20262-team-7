@@ -3,10 +3,10 @@
 #include <stdexcept>
 #include <string>
 
-// Versão provisória, usada apenas nos testes do bloco 4.2
-class PosicaoInvalidaException : public std::exception {
+// Lança a exceção
+class PosicaoInvalidaException : public std::runtime_error {
 public:
-  PosicaoInvalidaException(const std::string& mensagem) : std::exception(mensagem) {}
+  PosicaoInvalidaException(const std::string& mensagem) : std::runtime_error(mensagem) {}
 };
 
 #endif
